@@ -1,1 +1,1 @@
-print("jeffrey is better than richar")
+print("richard is better than jeferey")
