@@ -1,5 +1,5 @@
 import requests
-api_url="https://fortnite-api.com/v2/cosmetics/br"
+api_url="https://www.amiiboapi.com/api/amiibo/"
 response = requests.get(api_url)
 response.json() 
-print(response.text)
+api=response.text

@@ -25,8 +25,8 @@
     position:absolute;
 }
 .filter{
-    font-size:25px;
-    transition: width 1s;
+    font-size:30px;
+    transition: .5s;
 }
 .filter:hover{
     font-size:40px;
