@@ -6,17 +6,19 @@
     <link rel="stylesheet" href="../static/stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="box">
-      <h1 class="heading">Fortnite API Search</h1>
-      <input type="text" placeholder="Search..">
+      <h1 class="heading">Amiibo API Search</h1>
+      <input class="searchbar" type="text" placeholder="Search..">
     </div>
-    <ul class="filterlist">
-      <li class="filter">Series</li>
-      <li class="filter">Character</li>
-    </ul>
-    <img class="bacco" src="{{ url_for('static',filename='img/fortnite.png')}}">
+    <div class="filterbox">
+      <ul class="filterlist"> Filter by
+        <li class="filter">Game Series</li>
+        <li class="filter">Characters</li>
+      </ul>
+    </div>
+    <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
   </body>
 </html>

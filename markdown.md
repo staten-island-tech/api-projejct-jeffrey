@@ -1,6 +1,5 @@
-- TO DO
-  fix teh fotns
+    TO DO
 
-make the api worky
-fix html
-fix imgaes
+- make the api worky
+
+- fix html
