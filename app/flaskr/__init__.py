@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, render_template
 import requests
+from .api import api
 
 
 def create_app(test_config=None):
@@ -29,5 +30,17 @@ def create_app(test_config=None):
     @app.route("/")
     def home():
         return render_template('index.html')
+
+    @app.route("/<path:value>", methods=['GET', 'POST'])
+    def getValue(value):
+        for a in api['data']:
+            for b in api['type']:
+                if value == b['value']: 
+                    return render_template("interest.html",api=api,value=value)
+        return render_template("error.html")
+
+    @app.errorhandler(404)
+    def interestnotfound(error):
+        return render_template ('error.html'), 404
 
     return app
