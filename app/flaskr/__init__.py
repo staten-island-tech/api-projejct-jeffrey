@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template
 import requests
-from .api import api
+from .api import api 
 
 
 def create_app(test_config=None):

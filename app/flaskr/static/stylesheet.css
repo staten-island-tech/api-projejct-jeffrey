@@ -1,44 +1,49 @@
-*{
-    font-family: 'Baumans', cursive;
-    letter-spacing: 1px;
-}
-.baccofull{
-    position:relative;
-    width:100%;
-    height:800px;
-}
-.bacco{
-    top: 0; 
-    left: 0; 
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-size:cover;
-    min-width: fit-content;
-    min-width: 100%;
-    min-height: 100%;
-  }
-.box,.filterbox{
-    position:absolute;
-    width:100%;
-    height:100px;
-    color:black;
-    text-align:center;
-    display:flex;
-    align-items:center;
-    flex-direction: column;
-    flex-wrap: wrap;
-}
-.filterlist{
-    position:absolute;
-}
-.filter{
-    font-size:50px;
-    transition: .5s;
-}
-.filter:hover{
-    font-size:75px;
-}
-.filterbox{
-    justify-content:space-around;
-    top:50px;
-}
+    *{
+        font-family: 'Baumans', cursive;
+        letter-spacing: 1px;
+    }
+    .baccofull{
+        position:relative;
+        width:100%;
+        height:800px;
+    }
+    .bacco{
+        top: 0; 
+        left: 0; 
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-size:cover;
+        min-width: fit-content;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    .box,.filterbox{
+        position:absolute;
+        width:100%;
+        height:100px;
+        color:black;
+        text-align:center;
+        display:flex;
+        align-items:center;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .filterlist{
+        position:absolute;
+    }
+    .filter{
+        font-size:50px;
+        transition: .5s;
+    }
+    .filter:hover{
+        font-size:75px;
+    }
+    .filterbox{
+        justify-content:space-around;
+        top:100px;
+    }
+    .searchbar{
+        width:100px;
+        height:20px;
+        top:50px;
+    }
