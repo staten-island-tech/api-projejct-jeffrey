@@ -2,8 +2,11 @@ import os
 
 from flask import Flask, render_template
 import requests
-from .api import api 
-
+import json
+# this is the api code
+api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").json()
+api_url.json()
+api=api_url.text
 
 def create_app(test_config=None):
     # create and configure the app
@@ -28,16 +31,8 @@ def create_app(test_config=None):
 
     # a simple page that says hello
     @app.route("/")
-    def home():
-        return render_template('index.html')
-
-    @app.route("/<path:value>", methods=['GET', 'POST'])
-    def getValue(value):
-        for a in api['data']:
-            for b in api['type']:
-                if value == b['value']: 
-                    return render_template("interest.html",api=api,value=value)
-        return render_template("error.html")
+    def index():
+        return render_template('index.html', api=api)
 
     @app.errorhandler(404)
     def interestnotfound(error):

@@ -18,6 +18,9 @@
         <li class="filter">Game Series</li>
         <li class="filter">Characters</li>
       </ul>
+      {% for amiibo in api.results %}
+      <h3>{{amiibo.name}}</h3>
+      {% endfor %}
     </div>
     <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
   </body>
