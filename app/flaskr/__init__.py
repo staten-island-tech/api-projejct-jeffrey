@@ -5,8 +5,7 @@ import requests
 import json
 # this is the api code
 api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").json()
-api_url.json()
-api=api_url.text
+api=api_url['amiibo']
 
 def create_app(test_config=None):
     # create and configure the app
