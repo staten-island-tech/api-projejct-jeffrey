@@ -33,6 +33,10 @@ def create_app(test_config=None):
     def index():
         return render_template('index.html', api=api)
 
+    #@app.route("/filter/<filter>")
+    #def getFilter():
+
+
     @app.errorhandler(404)
     def interestnotfound(error):
         return render_template ('error.html'), 404

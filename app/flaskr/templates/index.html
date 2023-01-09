@@ -11,7 +11,9 @@
   <body>
     <div class="box">
       <h1 class="heading">Amiibo API Search</h1>
-      <input class="searchbar" type="text" placeholder="Amiibo Name...">
+      <input name="amiiboname" class="searchbar" type="text" placeholder="Amiibo Name..."
+      value="{{ request.form['body'] }}" required
+      />
     </div>
     <div class="filterbox">
       <ul class="filterlist"> Filter by
