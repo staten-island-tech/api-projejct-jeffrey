@@ -3,9 +3,10 @@ import os
 from flask import Flask, render_template
 import requests
 import json
+from flask import request
 # this is the api code
 api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").json()
-api=api_url['amiibo']
+api=api_url['amiibo']   
 
 def create_app(test_config=None):
     # create and configure the app
@@ -32,13 +33,11 @@ def create_app(test_config=None):
     @app.route("/")
     def index():
         return render_template('index.html', api=api)
-
+    @app.route('/?name=<path:amiiboname>', methods=['GET','POST'])
+    def my_form_post(amiiboname):
+        if request.method == "POST":
+            amiiboname = request.form.get("aname")
+            return render_template('series.html',api=api, amiiboname=amiiboname)
     #@app.route("/filter/<filter>")
     #def getFilter():
-
-
-    @app.errorhandler(404)
-    def interestnotfound(error):
-        return render_template ('error.html'), 404
-
     return app

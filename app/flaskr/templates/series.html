@@ -1,1 +1,4 @@
 {% extends 'index.html' %}
+{% if amiiboname in api['name'] %}
+    <h1>{{api}}</h1>
+{% endif %}
