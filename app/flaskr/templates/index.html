@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap" rel="stylesheet">
   </head>
   <body>
+  <div>
     <div class="box">
       <h1 class="heading">Amiibo API Search</h1>
-      <form method="POST"> 
-        <input type="search" id="name" name="variable" placeholder="Amiibo name..">
+      <form method="post"> 
+        <input id="searchbar" name="title" value="{{ request.form['title'] }}" placeholder="Amiibo name..">
         <button>Search</button>
       </form>
     </div>
@@ -23,6 +24,7 @@
       </ul>
     </div>
     <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
+  </div>
   </body>
 </html>
 

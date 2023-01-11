@@ -8,8 +8,7 @@
             height:800px;
         }
         .bacco{
-            top: 0; 
-            left: 0; 
+            overflow:scroll;
             background-size:cover;
             background-repeat:no-repeat;
             background-size:cover;
@@ -64,3 +63,7 @@
             height:auto;
             width:auto;
         }
+#searchbar{
+     padding:15px;
+     border-radius: 100px;
+}

@@ -30,14 +30,14 @@ def create_app(test_config=None):
         pass
 
     # a simple page that says hello
-    @app.route("/")
+    @app.route("/", methods=['GET','POST'])
     def index():
         return render_template('index.html', api=api)
     @app.route('/?name=<path:amiiboname>', methods=['GET','POST'])
-    def my_form_post(amiiboname):
+    def myform_post(amiiboname):
         if request.method == "POST":
             amiiboname = request.form.get("aname")
-            return render_template('series.html',api=api, amiiboname=amiiboname)
+            return render_template('namesearch.html',api=api, amiiboname=amiiboname)
     #@app.route("/filter/<filter>")
     #def getFilter():
     return app
