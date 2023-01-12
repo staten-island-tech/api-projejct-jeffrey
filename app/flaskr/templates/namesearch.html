@@ -1,4 +1,12 @@
-{% extends 'base.html' %}
-{% if amiiboname in api['name'] %}
-    <h1>{{api}}</h1>
-{% endif %}
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/stylesheet.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap" rel="stylesheet">
+    </head>
+<img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
+    {% for i in api %}
+        <p>{{i}}</p>
+    {% endfor %}
+</html>

@@ -12,10 +12,10 @@
   <div>
     <div class="box">
       <h1 class="heading">Amiibo API Search</h1>
-      <form method="post"> 
-        <input id="searchbar" name="title" value="{{ request.form['title'] }}" placeholder="Amiibo name..">
-        <button>Search</button>
-      </form>
+        <form method="get"> 
+          <input id="searchbar" name="name" placeholder="Amiibo name..">
+            <button>Search</button>
+        </form>
     </div>
     <div class="filterbox">
       <ul class="filterlist"> Filter by
