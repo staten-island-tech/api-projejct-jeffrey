@@ -6,8 +6,9 @@ import json
 from flask import request
 # this is the api code
 
-#api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
-#api=json.loads(api_url)  
+api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
+api=json.loads(api_url) 
+ 
 
 def create_app(test_config=None):
     # create and configure the app
@@ -32,22 +33,12 @@ def create_app(test_config=None):
 
     # a simple page that says hello
     @app.route("/", methods=['GET','POST'])
-    def index():
-        api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
-        api=json.loads(api_url)         
+    def index():       
         return render_template('index.html', api=api)
 
-    @app.route('/?name=<path:amiiboname>', methods=['GET'])
-    def myform_post(amiiboname):
-        api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
-        api=json.loads(api_url) 
-        amiiboname = request.form.get("name")
-        print(amiiboname)
-        print(api['name'])
-        if amiiboname in api['name']:
-            api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={api['name']}").text
-            api=json.loads(api_url) 
-            return render_template('namesearch.html',api=api, amiiboname=amiiboname)
+    @app.route('/sort/character', methods=['GET'])
+    def sortCharacter():
+        return render_template('character.html',methods=['GET'])
     #@app.route("/filter/<filter>")
     #def getFilter():
     return app
