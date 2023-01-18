@@ -13,11 +13,16 @@
     <h1 class="heading">Amiibo API Search</h1>
       <ul class="filterlist"> Filter by
         <li class="filter">Game Series</li>
+            {% for i in api['amiibo'] %}
+            <form action="" method="get"></form>
+              <input type="button" name="seriessorttype" class="gameseriesbutton" value="{{i['gameSeries']}}" onclick="location.href='gameseries.html';"/>
+            </form>
+            {% endfor %}
         <a href="{{ url_for('sortCharacter') }}"><li class="filter">Characters</li></a>
         <a href="{{ url_for('allamiibo') }}"><li class="filter">All Amiibo</li></a>
       </ul>
       <form method="get">
-        <input type="text" id="fname" name="fname" placeholder="Amiibo name..">
+        <input type="text" id="amiiboname" name="amiiboname" placeholder="Amiibo name..">
       </form>
     <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
   </div>

@@ -48,6 +48,20 @@ def create_app(test_config=None):
             sortednamedict=sorted(i['character'])
             print(sortednamedict)
         return render_template('character.html',methods=['GET'],api=api,sortednamedict=sortednamedict)
+    @app.route('/sort/search/<path:amiiboname>', methods = ['POST','GET'])
+    def sortName(amiiboname)
+        if request.method == 'POST':
+            amiiboname=request.form['amiiboname']
+            api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={amiiboname}").text
+            api=json.loads(api_url) 
+            return render_template('name.html', methods=['GET','POST'])
+    @app.route('sort/game/<path:game>',methods=['POST','GET'])
+    def sortGame(game)
+    if request.method = 'POST':
+        game=request.form['seriessorttype']
+        api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={amiiboname}").text
+        api=json.loads(api_url) 
+
     #@app.route("/filter/<filter>")
     #def getFilter():
     return app
