@@ -3,9 +3,8 @@
     letter-spacing: 1px;
 }
 .bacco{
-    overflow:scroll;
     background-size:cover;
-    background-repeat:no-repeat;
+    background-repeat:repeat;
     min-width: fit-content;
     min-width: 100%;
     min-height: 100%;
@@ -35,7 +34,7 @@
     font-size:75px;
 }
 .characterbox{
-    border-radius: 50px;
+    border-radius: 30px;
     border: 10px solid rgb(26, 182, 109);
     padding: 10px;
     width: 400px;
@@ -43,12 +42,17 @@
     transition: 0.2s;
     flex-direction: row;
     flex-wrap: wrap; /* allocates extra space in between or around our elements */
-    display:block;
+    display:flex;
     position:relative;
     justify-content: center;
+    margin:0 auto;
 }
 .characterbox:hover{
     width:400px;
     height:auto;
     padding: 0 20px;
+}
+.amiibopic{
+    max-width: 100px;
+    max-height: 100px;
 }

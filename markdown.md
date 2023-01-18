@@ -13,3 +13,9 @@
 - do all of the sorts usign the allamiibo template
 
 - fix the flexboxes not going from left to righ
+
+- JEFFREY: gameseries = {% if [name of game series] in api['gameSeries'] %} {% for loop %} for how many game series there are
+
+- OR JEFFREY: gameseries dropdown
+
+- for loop without repeat potentialy

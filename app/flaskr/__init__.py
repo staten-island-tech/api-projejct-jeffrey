@@ -44,8 +44,8 @@ def create_app(test_config=None):
     def sortCharacter():
         api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
         api=json.loads(api_url) 
-        for i in api:
-            sortednamedict=i.sort()
+        for i in api['amiibo']:
+            sortednamedict=sorted(i['character'])
             print(sortednamedict)
         return render_template('character.html',methods=['GET'],api=api,sortednamedict=sortednamedict)
     #@app.route("/filter/<filter>")

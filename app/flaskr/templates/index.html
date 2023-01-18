@@ -16,6 +16,9 @@
         <a href="{{ url_for('sortCharacter') }}"><li class="filter">Characters</li></a>
         <a href="{{ url_for('allamiibo') }}"><li class="filter">All Amiibo</li></a>
       </ul>
+      <form method="get">
+        <input type="text" id="fname" name="fname" placeholder="Amiibo name..">
+      </form>
     <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
   </div>
   </body>
