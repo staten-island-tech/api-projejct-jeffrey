@@ -6,9 +6,6 @@ import json
 from flask import request
 # this is the api code
 
-api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
-api=json.loads(api_url) 
- 
 
 def create_app(test_config=None):
     # create and configure the app
@@ -33,12 +30,24 @@ def create_app(test_config=None):
 
     # a simple page that says hello
     @app.route("/", methods=['GET','POST'])
-    def index():       
+    def index():    
+        api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
+        api=json.loads(api_url)           
         return render_template('index.html', api=api)
+    @app.route("/allamiibo", methods=['GET','POST'])
+    def allamiibo():    
+        api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
+        api=json.loads(api_url)           
+        return render_template('allamiibo.html', api=api)
 
     @app.route('/sort/character', methods=['GET'])
     def sortCharacter():
-        return render_template('character.html',methods=['GET'])
+        api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
+        api=json.loads(api_url) 
+        for i in api:
+            sortednamedict=i.sort()
+            print(sortednamedict)
+        return render_template('character.html',methods=['GET'],api=api,sortednamedict=sortednamedict)
     #@app.route("/filter/<filter>")
     #def getFilter():
     return app
