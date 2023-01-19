@@ -34,11 +34,15 @@ def create_app(test_config=None):
         api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
         api=json.loads(api_url)           
         return render_template('index.html', api=api)
+
     @app.route("/allamiibo", methods=['GET','POST'])
     def allamiibo():    
         api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
         api=json.loads(api_url)           
-        return render_template('allamiibo.html', api=api)
+        try:
+            return render_template('allamiibo.html', api=api)
+        except:
+            return render_template('error.html')
 
     @app.route('/sort/character', methods=['GET'])
     def sortCharacter():
@@ -59,8 +63,12 @@ def create_app(test_config=None):
     def sortGame(game)
     if request.method = 'POST':
         game=request.form['seriessorttype']
-        api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={amiiboname}").text
+        api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={game}").text
         api=json.loads(api_url) 
+        return render_template('gameseries.html', methods=['GET','POST'])
+    @app.errorhandler(404)
+    def page_not_found(error):
+        return render_template('error.html'),404
 
     #@app.route("/filter/<filter>")
     #def getFilter():
