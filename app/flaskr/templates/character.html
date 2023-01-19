@@ -7,14 +7,12 @@
         <link rel="stylesheet" href="../static/stylesheet.css">
     </head>
 <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
-<p>this demo has been limited to only mario amiibo for testing purposes</p>
+<p>Just the Marios</p>
 {% for i in api['amiibo'] %}
     {% if i['gameSeries']=="Super Mario" %}
         <div class="characterbox">
             <img class="amiibopic"src="{{i['image']}}">
-            {% for i in sortednamedict %}
-                <h1>{{i}}</h1>
-            {% endfor %}
+            <h1>{{i['name']}}</h1>
             <p>{{i['gameSeries']}}</p>
         </div>
     {% endif %}
