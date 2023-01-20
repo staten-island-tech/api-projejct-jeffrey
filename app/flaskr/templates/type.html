@@ -6,10 +6,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Baumans&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../static/stylesheet.css">
     </head>
-<img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
-<p>this demo has been limited to only mario amiibo for testing purposes</p>
-{% for i in api['amiibo'] %}
-    {% if i['gameSeries']=="Super Mario" %}
+{% for i in api['amiibo']}
+    {% if i['type']=type %}
         <div class="characterbox">
             <img class="amiibopic"src="{{i['image']}}">
             <h1>{{i['name']}}</h1>
@@ -17,4 +15,4 @@
         </div>
     {% endif %}
 {% endfor %}
-</html>
+    

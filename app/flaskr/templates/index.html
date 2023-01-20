@@ -11,28 +11,33 @@
   <body>
   <div>
     <h1 class="heading">Amiibo API Search</h1>
+    <form method="GET">
+      <input type="text" id="amiiboname" name="amiiboname" placeholder="Amiibo name..">
+    </form>
       <ul class="filterlist"> Filter by
-        <li class="filter">Game Series</li>
-            {% for i in api['amiibo'] %}
-            <form action="" method="get"></form>
-              <input type="button" name="seriessorttype" class="gameseriesbutton" value="{{i['gameSeries']}}" onclick="location.href='gameseries.html';"/>
+        <li class="filter">amiibotypes</li>
+            <form action="" method="GET"></form>
+              <input type="button" name="typesort" class="typebutton" value="figure" onclick="location.href='type.html';"/>
+              <input type="button" name="typesort" class="typebutton" value="card" onclick="location.href='type.html';"/>
+              <input type="button" name="typesort" class="typebutton" value="yarn" onclick="location.href='type.html';"/>
+              <input type="button" name="typesort" class="typebutton" value="band" onclick="location.href='type.html';"/>
             </form>
-            {% endfor %}
         <a href="{{ url_for('sortCharacter') }}"><li class="filter">Characters</li></a>
         <a href="{{ url_for('allamiibo') }}"><li class="filter">All Amiibo</li></a>
       </ul>
-      <form method="get">
-        <input type="text" id="amiiboname" name="amiiboname" placeholder="Amiibo name..">
-      </form>
     <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
   </div>
   </body>
 </html>
 
-
-<!-- {% for amiibo in api %}
-      <div class="namebox">
-        <h3>{{amiibo.name}}</h3>
-        <img class="amiibo-image" src="{{amiibo.image}}">
-      </div>
-      {% endfor %} -->
+<!-- figure,card,band,yarn-->
+<!-- 
+  <form method="get">
+        <input type="text" id="amiiboname" name="amiiboname" placeholder="Amiibo name..">
+      </form>
+  <li class="filter">Game Series</li>
+            {% for i in api['amiibo'] %}
+            <form action="" method="get"></form>
+              <input type="button" name="seriessorttype" class="gameseriesbutton" value="{{i['gameSeries']}}" onclick="location.href='gameseries.html';"/>
+            </form>
+            {% endfor %}-->

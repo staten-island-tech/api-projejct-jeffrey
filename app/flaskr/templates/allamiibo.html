@@ -8,12 +8,10 @@
     </head>
 <img class="bacco" src="{{ url_for('static',filename='img/amiibobg.png')}}">
 {% for i in api['amiibo'] %}
-    {% if i['name']=="Mario" %}
         <div class="characterbox">
             <img class="amiibopic" src="{{i['image']}}">
             <h1>{{i['name']}}</h1>
             <p>{{i['gameSeries']}}</p>
         </div>
-    {% endif %}
 {% endfor %}
 </html>

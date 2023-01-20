@@ -49,23 +49,22 @@ def create_app(test_config=None):
         api_url=requests.get("https://www.amiiboapi.com/api/amiibo/").text
         api=json.loads(api_url) 
         for i in api['amiibo']:
-            sortednamedict=sorted(i['character'])
-            print(sortednamedict)
-        return render_template('character.html',methods=['GET'],api=api,sortednamedict=sortednamedict)
-    @app.route('/sort/search/<path:amiiboname>', methods = ['POST','GET'])
-    def sortName(amiiboname)
+            print(i['type'])
+        return render_template('character.html',methods=['GET'],api=api)
+    @app.route('/sort/search/<path:name>', methods = ['POST','GET'])
+    def sortName(name):
         if request.method == 'POST':
-            amiiboname=request.form['amiiboname']
-            api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={amiiboname}").text
+            name=request.form['amiiboname']
+            api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={name}").text
             api=json.loads(api_url) 
             return render_template('name.html', methods=['GET','POST'])
-    @app.route('sort/game/<path:game>',methods=['POST','GET'])
-    def sortGame(game)
-    if request.method = 'POST':
-        game=request.form['seriessorttype']
-        api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?name={game}").text
-        api=json.loads(api_url) 
-        return render_template('gameseries.html', methods=['GET','POST'])
+    @app.route('/sort/game/<path:game>',methods=['POST','GET'])
+    def sortGame(game):
+        if request.method == 'POST':
+            type=request.form['typesort']
+            api_url=requests.get(f"https://www.amiiboapi.com/api/amiibo/?type={type}").text
+            api=json.loads(api_url) 
+            return render_template('type.html', methods=['GET','POST'])
     @app.errorhandler(404)
     def page_not_found(error):
         return render_template('error.html'),404
